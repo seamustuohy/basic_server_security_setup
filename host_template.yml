@@ -1,0 +1,8 @@
+# Copy this file to ./private/hosts with proper host information added.
+
+# EXAMPLE
+# new-server ansible_ssh_port=22 ansible_ssh_host=127.0.0.1
+new-server ansible_ssh_port=ANSIBLE_PORT_HERE ansible_ssh_host=IP_ADDRESS_HERE
+
+[new-servers]
+new-server

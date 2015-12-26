@@ -1,0 +1,15 @@
+
+- name: Set Postfix option hostname
+  debconf: name=postifx question="postfix/mailname" value={{ service_type }} vtype="string"
+
+- name: Set Postfix option type as internet site
+  debconf: name=postfix question="postfix/main_mailer_type" value="'Internet Site'" vtype="string"
+
+- name: install postfix
+  apt: name=postfix state=present
+
+- name: Install logwatch
+  action: apt pkg=logwatch state=installed
+
+- name: Make logwatch mail $logwatch_email daily
+  action: lineinfile dest=/etc/cron.daily/00logwatch regexp="^/usr/sbin/logwatch" line="/usr/sbin/logwatch --output mail --mailto {{ logwatch_email }} --detail high" state=present create=yes

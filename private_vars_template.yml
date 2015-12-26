@@ -1,0 +1,35 @@
+
+# The alternative admin's name that you use instead of root.
+alt_admin_name: "ALTERNATE_ADMIN"
+
+# The salted and hashed password of your alternative admin
+# mkpasswd --method=SHA-512 'PASSWORD' SALT_GOES_HERE
+alt_admin_password: "ALTERNATE_ADMIN_PASS"
+
+# Set this to no if you want to only allow key based authentication
+# TODO: Implement ssh key addition to servers
+# WARNING: Do not change. No is unimplemented
+security_ssh_password_authentication: "yes"
+
+# Set this to yes if you want users to be able to login as root
+security_ssh_permit_root_login: "no"
+
+# Set this for users you want to use sudo without a password
+security_sudoers_passwordless: []
+
+# Set this for users you want to force to use passwords to use sudo
+# I just copy and paste the name here, I bet you could use a template variable
+security_sudoers_passworded:
+  - "ALTERNATE_ADMIN"
+
+# Set this to the port you want to force ssh to use
+security_ssh_port: SOME_RANDOMISH_PORT
+
+# Set system to autoupdate for security related upgrades
+security_autoupdate_enabled: true
+
+# Set this to the e-mail you want logwatch to send emails to.
+logwatch_email: "email@email.email"
+
+# The service type to put in the postfix mailname
+service_type: "SERVICE_TYPE_FOR_POSTFIX"

@@ -1,0 +1,8 @@
+
+- name: Baseline security playbook
+# ========================================================
+  hosts: all
+  vars_files:
+    - private/private.yml
+  roles:
+    - baseline
